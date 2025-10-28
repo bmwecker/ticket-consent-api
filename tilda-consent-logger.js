@@ -66,8 +66,8 @@
   // КОНФИГУРАЦИЯ - ИЗМЕНИТЕ ЭТИ ЗНАЧЕНИЯ
   // ========================================
   
-  // URL вашего API на Render (замените на реальный после деплоя)
-  const API_URL = 'https://your-api-name.onrender.com/api/consent';
+  // URL вашего API на Render
+  const API_URL = 'https://ticket-consent-api.onrender.com/api/consent';
   
   // Версии документов (обновляйте при изменении текстов)
   const DOCUMENT_VERSIONS = {
@@ -118,12 +118,7 @@
   // НОВЫЙ КОД - ЛОГИРОВАНИЕ (ДОБАВЛЯЕМ)
   // ========================================
   
-  // Генерация уникального ID сессии (создаётся один раз при загрузке страницы)
-  const SESSION_ID = generateUUID();
-  
-  console.log('🔐 Consent Logger initialized. Session ID:', SESSION_ID);
-  
-  // Функция генерации UUID v4
+  // Функция генерации UUID v4 (ОБЪЯВЛЯЕМ СНАЧАЛА!)
   function generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       const r = Math.random() * 16 | 0;
@@ -131,6 +126,11 @@
       return v.toString(16);
     });
   }
+  
+  // Генерация уникального ID сессии (создаётся один раз при загрузке страницы)
+  const SESSION_ID = generateUUID();
+  
+  console.log('🔐 Consent Logger initialized. Session ID:', SESSION_ID);
   
   // Функция вычисления SHA-256 хеша
   async function sha256(text) {
